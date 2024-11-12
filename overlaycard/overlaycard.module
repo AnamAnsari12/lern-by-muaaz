@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function overlaycard_theme($existing, $type, $theme, $path){
+    return[
+        'overlaycard' => [
+            'variables' => [
+                'title' => NULL,
+                'images' => NULL,
+            ],
+        ],
+    ];
+}
+?>

@@ -1,0 +1,4 @@
+overlaycard_styles:
+  css:
+    component:
+      css/overlaycard.css: {}
