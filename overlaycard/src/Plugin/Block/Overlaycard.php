@@ -1,6 +1,7 @@
 <?php
 
 namespace Drupal\overlaycard\Plugin\Block;
+
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\Attribute\Block;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
@@ -11,24 +12,29 @@ use Drupal\media\Entity\Media;
 
 
 /**
- * 
- * provides the overlayblock.
- * @Block(
- *  id= "overlaycard",
- *  admin_label=@Translation("overlaycard")
- * )
- * 
+ * Provides a 'My Custom Block' block.
  */
-class Overlaycard extends BlockBase{
-    /**
+#[Block(
+  id: "overlaycard_block",
+  admin_label: new TranslatableMarkup("Overlay Card block"),
+  category: new TranslatableMarkup("Overlay Card World")
+)]
+class Overlaycard extends BlockBase
+{
+  /**
    * {@inheritdoc}
    */
-  public function build(){
+  public function build()
+  {
     return [
-        '#type' => 'markup',
-
+      '#theme' => 'overlaycard',
+      '#title' => "ANAM PYARI",
+      '#images' => "BANNER",
+      '#attached' => [
+        'library' => [
+          'overlaycard/overlaycard_styles',
+        ],
+      ],
     ];
   }
 }
-
-?>
