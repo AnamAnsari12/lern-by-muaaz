@@ -1,0 +1,31 @@
+sum=0
+arr 2,4,6,8
+2
+0+2=2
+2
+2+4=6
+6+6=12;
+
+create function 
+intilize varibale for store leanth of array 
+the har ek elemnet par loop chalao
+ aur array ki string ko plus sum me kro and return kro
+
+intilize varibale "sum" as 0 for store leanth of array 
+the har ek elemnet par loop chalao
+ aur sum ko 1 se increment
+return kro
+
+create a function 
+intialize variable count start 0 store number of string as  anam
+then itirate foreach loop for all elements
+and set if cunditon checak how many strings anam 
+and incremen cnt variable by 1
+then return cnt
+
+first think properly thean write
+create a function 
+store array of strings 
+then create var cnt init 0 for each elemenet
+an the array string and that count each strings convert to object 
+return object

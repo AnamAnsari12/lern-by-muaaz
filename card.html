@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Section</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .card-section {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 50px;
+      }
+      .card {
+        position: relative;
+        overflow: hidden;
+        width: 250px;
+        height: 350px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .card:hover {
+        transform: scale(1.05);
+      }
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(83, 169, 97, 0.5);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+      }
+      .card-overlay h5 {
+        font-size: 1.2rem;
+        margin: 0;
+      }
+      .card-overlay p {
+        font-size: 0.9rem;
+        text-align: center;
+      }
+      .card-overlay button {
+        padding: 10px 20px;
+        border: none;
+        background-color: white;
+        color: green;
+        font-size: 0.9rem;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        margin-top: 10px;
+      }
+      .card-overlay button:hover {
+        background-color: #11316c;
+        color: white;
+      }
+
+      /* Show overlay on hover */
+      .card:hover .card-overlay {
+        opacity: 1;
+      }
+
+      /* Positioning of overlay text and button */
+      .card:nth-child(1) .card-overlay {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 20px;
+      }
+      .card:nth-child(2) .card-overlay {
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 20px;
+      }
+      .card:nth-child(3) .card-overlay {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 20px;
+      }
+      .card:nth-child(4) .card-overlay {
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="card-section">
+      <div class="card">
+        <img
+          src="./images/citizen-uses-mockup-tablet-city_482257-75876.jpg"
+          alt="Core Engineering"
+        />
+        <div class="card-overlay">
+          <h5>Core Engineering</h5>
+          <p>Core engineering capabilities with deep industry expertise.</p>
+          <button>Learn More</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="./images/closeup-with-laptop-sticky-notes_23-2148205691.jpg"
+          alt="Software Innovation"
+        />
+        <div class="card-overlay">
+          <h5>Software Innovation</h5>
+          <p>Capacity to develop software products that drive innovation.</p>
+          <button>Learn More</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="./images/medium-shot-woman-with-laptop_23-2148883486.jpg"
+          alt="Pod-Based Delivery"
+        />
+        <div class="card-overlay">
+          <h5>Pod-Based Delivery</h5>
+          <p>A scalable, pod-based delivery model for software engineering.</p>
+          <button>Learn More</button>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="./images/person-with-futuristic-metaverse-avatar-mask_23-2149699834.jpg"
+          alt="Growth Platform"
+        />
+        <div class="card-overlay">
+          <h5>Growth Platform</h5>
+          <p>A platform for growth with market-leading solutions.</p>
+          <button>Learn More</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
