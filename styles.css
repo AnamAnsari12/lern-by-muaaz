@@ -6,21 +6,24 @@
 
 body {
   font-family: Arial, sans-serif;
+  background-color: #062b51;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 20px; /* Increased padding for more height */
-  background-color: transparent; /* Transparent background initially */
+  padding: 0px 20px; /* Increased padding for more height */
+  background-color: white; /* Transparent background initially */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
-  transition: background-color 0.3s ease; /* Smooth transition for background */
+  transition: opacity 0.3s ease; /* Smooth transition for background */
+  height: 100px;
+  opacity: 0.5;
 }
 
 .header:hover {
-  background-color: #fff; /* Background changes to white on hover */
+  opacity: 1; /* Background changes to white on hover */
 }
 
 .logo img {
@@ -41,15 +44,15 @@ body {
 
 .menu li a {
   text-decoration: none;
-  color: #333;
+  color: #123270;
+  font-weight: bold;
   font-size: 18px;
   padding-bottom: 5px; /* Space for the underline effect */
   transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth hover transition */
 }
 
 .menu li a:hover {
-  color: #0073e6; /* Adjust to preferred hover color */
-  border-bottom: 2px solid #0073e6; /* Underline on hover */
+  border-bottom: 2px solid #53b789; /* Underline on hover */
 }
 
 @media (max-width: 768px) {
