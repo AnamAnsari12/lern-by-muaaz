@@ -26,6 +26,14 @@ body {
   opacity: 1; /* Background changes to white on hover */
 }
 
+.header:hover ul:hover li a:hover {
+  color: #53b789;
+}
+
+.header:hover ul:hover li a {
+  color: rgba(83, 183, 137, 0.5);
+}
+
 .logo img {
   height: 50px; /* Adjust as needed */
 }
