@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px; /* Increased padding for more height */
+  background-color: transparent; /* Transparent background initially */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+.header:hover {
+  background-color: #fff; /* Background changes to white on hover */
+}
+
+.logo img {
+  height: 50px; /* Adjust as needed */
+}
+
+.navbar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  padding-bottom: 5px; /* Space for the underline effect */
+  transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth hover transition */
+}
+
+.menu li a:hover {
+  color: #0073e6; /* Adjust to preferred hover color */
+  border-bottom: 2px solid #0073e6; /* Underline on hover */
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .menu li a {
+    font-size: 16px;
+  }
+}
