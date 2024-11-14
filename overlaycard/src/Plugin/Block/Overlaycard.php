@@ -28,14 +28,14 @@ class Overlaycard extends BlockBase
   {
     return [
       '#theme' => 'overlaycard',
-      'content1' => "content1",
-      'content2' => "content2",
-      'content3' => "content3",
-      'content4' => "content4",
-      'image1' => "./image.png",
-      'image2' => "./image.png",
-      'image4' => "./image.png",
-      'image3' => "./image.png",
+      '#content1' => "content1",
+      '#content2' => "content2",
+      '#content3' => "content3",
+      '#content4' => "content4",
+      '#image1' => "./image.png",
+      '#image2' => "./image.png",
+      '#image4' => "./image.png",
+      '#image3' => "./image.png",
       '#attached' => [
         'library' => [
           'overlaycard/overlaycard_styles',
