@@ -26,12 +26,13 @@ class Overlaycard extends BlockBase
    */
   public function build()
   {
+    $config = $this->getConfiguration();
     return [
       '#theme' => 'overlaycard',
-      '#content1' => "content1",
-      '#content2' => "content2",
-      '#content3' => "content3",
-      '#content4' => "content4",
+      '#content1' => $config['content1'],
+      '#content2' => $config['content2'],
+      '#content3' => $config['content3'],
+      '#content4' => $config['content4'],
       '#image1' => "./image.png",
       '#image2' => "./image.png",
       '#image4' => "./image.png",
@@ -50,6 +51,9 @@ class Overlaycard extends BlockBase
   {
     return [
       'content1' => $this->t(''),
+      'content2' => $this->t(''),
+      'content3' => $this->t(''),
+      'content4' => $this->t(''),
     ];
   }
 
@@ -63,6 +67,27 @@ class Overlaycard extends BlockBase
       '#title' => $this->t('first cards content'),
       '#description' => $this->t('the contetns of first cards content'),
       '#default_value' => $this->configuration['content1'],
+    ];
+
+    $form['content2'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('first cards content'),
+      '#description' => $this->t('the contetns of first cards content'),
+      '#default_value' => $this->configuration['content2'],
+    ];
+
+    $form['content3'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('first cards content'),
+      '#description' => $this->t('the contetns of first cards content'),
+      '#default_value' => $this->configuration['content3'],
+    ];
+
+    $form['content4'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('first cards content'),
+      '#description' => $this->t('the contetns of first cards content'),
+      '#default_value' => $this->configuration['content4'],
     ];
 
     return $form;
