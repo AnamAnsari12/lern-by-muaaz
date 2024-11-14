@@ -54,6 +54,7 @@ class Overlaycard extends BlockBase
       'content2' => $this->t(''),
       'content3' => $this->t(''),
       'content4' => $this->t(''),
+      // 'image1' => $this->t(''),
     ];
   }
 
@@ -67,20 +68,23 @@ class Overlaycard extends BlockBase
       '#title' => $this->t('first cards content'),
       '#description' => $this->t('the contetns of first cards content'),
       '#default_value' => $this->configuration['content1'],
+      '#required' => TRUE,
     ];
 
     $form['content2'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('first cards content'),
+      '#title' => $this->t('Second cards content'),
       '#description' => $this->t('the contetns of first cards content'),
       '#default_value' => $this->configuration['content2'],
+      '#required' => TRUE,
     ];
 
     $form['content3'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('first cards content'),
+      '#title' => $this->t('Third cards content'),
       '#description' => $this->t('the contetns of first cards content'),
       '#default_value' => $this->configuration['content3'],
+      '#required' => TRUE,
     ];
 
     $form['content4'] = [
@@ -88,6 +92,17 @@ class Overlaycard extends BlockBase
       '#title' => $this->t('first cards content'),
       '#description' => $this->t('the contetns of first cards content'),
       '#default_value' => $this->configuration['content4'],
+      '#required' => TRUE,
+    ];
+
+    $form['image1'] = [
+      '#type' => 'media_library',
+      '#title' => $this->t('Select image'),
+      '#description' => 'first card image',
+      '#default_value' => $config['image1'],
+      '#allowed_bundles' => ['image'],
+      '#required' => TRUE,
+      '#cardinality' => 1,
     ];
 
     return $form;
@@ -103,5 +118,6 @@ class Overlaycard extends BlockBase
     $this->configuration['content2'] = $values['content2'];
     $this->configuration['content3'] = $values['content3'];
     $this->configuration['content4'] = $values['content4'];
+    $this->configuration['image1'] = $values['image1'];
   }
 }
