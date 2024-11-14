@@ -27,13 +27,21 @@ class Overlaycard extends BlockBase
   public function build()
   {
     $config = $this->getConfiguration();
+
+    $image_urls = [];
+
+    $ids = $config['image1'];
+    $imageLoaded = Media::load($ids);
+
+
+
     return [
       '#theme' => 'overlaycard',
       '#content1' => $config['content1'],
       '#content2' => $config['content2'],
       '#content3' => $config['content3'],
       '#content4' => $config['content4'],
-      '#image1' => "./image.png",
+      '#image1' => $imageLoaded,
       '#image2' => "./image.png",
       '#image4' => "./image.png",
       '#image3' => "./image.png",
