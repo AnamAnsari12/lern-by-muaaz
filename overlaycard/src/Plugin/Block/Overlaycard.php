@@ -28,10 +28,18 @@ class Overlaycard extends BlockBase
   {
     $config = $this->getConfiguration();
 
-    $image_urls = [];
+    $image_url = '';
 
-    $ids = $config['image1'];
-    $imageLoaded = Media::load($ids);
+    // Load the media entity for image1.
+    if (!empty($config['image1'])) {
+      $media = Media::load($config['image1']);
+      if ($media && $media->hasField('field_media_image')) {
+        $file = $media->get('field_media_image')->entity;
+        if ($file) {
+          $image_url = file_create_url($file->getFileUri());
+        }
+      }
+    }
 
 
 
@@ -41,7 +49,7 @@ class Overlaycard extends BlockBase
       '#content2' => $config['content2'],
       '#content3' => $config['content3'],
       '#content4' => $config['content4'],
-      '#image1' => $imageLoaded,
+      '#image1' => $image_url,
       '#image2' => "./image.png",
       '#image4' => "./image.png",
       '#image3' => "./image.png",
