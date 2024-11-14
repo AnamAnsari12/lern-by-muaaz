@@ -100,5 +100,8 @@ class Overlaycard extends BlockBase
   {
     $values = $form_state->getValues();
     $this->configuration['content1'] = $values['content1'];
+    $this->configuration['content2'] = $values['content2'];
+    $this->configuration['content3'] = $values['content3'];
+    $this->configuration['content4'] = $values['content4'];
   }
 }
