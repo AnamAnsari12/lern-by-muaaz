@@ -3,14 +3,19 @@
 /**
  * Implements hook_theme().
  */
-function overlaycard_theme($existing, $type, $theme, $path){
-    return[
-        'overlaycard' => [
-            'variables' => [
-                'title' => NULL,
-                'images' => NULL,
-            ],
-        ],
-    ];
+function overlaycard_theme($existing, $type, $theme, $path) {
+  return [
+    'overlaycard' => [
+      'variables' => [
+        'content1' => "",
+        'content2' => "",
+        'content3' => "",
+        'content4' => "",
+        'image1' => "",
+        'image2' => "",
+        'image3' => "",
+        'image4' => "",
+      ],
+    ],
+  ];
 }
-?>
