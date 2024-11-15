@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hover to Change Background</title>
+    <style>
+      .flex-container {
+        display: flex;
+        height: 400px;
+        overflow: hidden;
+      }
+
+      .flex-item {
+        flex: 1;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        transition: flex 0.5s ease;
+      }
+
+      .flex-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3); /* Initial overlay color */
+        transition: background-color 0.5s;
+        z-index: 1; /* Ensure overlay appears above the image */
+      }
+
+      .flex-item h3,
+      .flex-item p {
+        color: #fff;
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      /* Hover effect */
+      .flex-item:hover {
+        flex: 4; /* Expand only the hovered item */
+      }
+
+      .flex-item:hover::before {
+        background-color: rgba(0, 0, 0, 0.6); /* Darken overlay on hover */
+      }
+
+      .flex-item:hover h3,
+      .flex-item:hover p {
+        opacity: 1; /* Show text on hover */
+      }
+
+      /* Hide non-hovered items */
+      .flex-container:hover .flex-item:not(:hover) {
+        display: none; /* Hide all other columns */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div
+        class="flex-item"
+        style="
+          background-image: url('../images/citizen-uses-mockup-tablet-city_482257-75876.jpg');
+        "
+      >
+        <div class="overlay">
+          <h3>Cloud Migration</h3>
+          <p>Get it right the first time with a cloud business case</p>
+        </div>
+      </div>
+      <div
+        class="flex-item"
+        style="
+          background-image: url('../images/closeup-with-laptop-sticky-notes_23-2148205691.jpg');
+        "
+      >
+        <div class="overlay">
+          <h3>Cloud Transformation</h3>
+          <p>Optimize your transformation journey.</p>
+        </div>
+      </div>
+      <div
+        class="flex-item"
+        style="
+          background-image: url('../images/medium-shot-woman-with-laptop_23-2148883486.jpg');
+        "
+      >
+        <div class="overlay">
+          <h3>Cloud Adoption</h3>
+          <p>Accelerate your cloud adoption process.</p>
+        </div>
+      </div>
+      <div
+        class="flex-item"
+        style="
+          background-image: url('../images/person-with-futuristic-metaverse-avatar-mask_23-2149699834.jpg');
+        "
+      >
+        <div class="overlay">
+          <h3>Security</h3>
+          <p>Ensure top-notch security in the cloud.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
