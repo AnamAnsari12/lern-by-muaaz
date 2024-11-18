@@ -1,0 +1,123 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapper:has(.flex-item:nth-child(1):hover) .bg-image:nth-child(1) {
+  opacity: 1;
+}
+.wrapper:has(.flex-item:nth-child(2):hover) .bg-image:nth-child(2) {
+  opacity: 1;
+}
+.wrapper:has(.flex-item:nth-child(3):hover) .bg-image:nth-child(3) {
+  opacity: 1;
+}
+.wrapper:has(.flex-item:nth-child(4):hover) .bg-image:nth-child(4) {
+  opacity: 1;
+}
+
+.flex-container {
+  display: flex;
+  height: 400px;
+  overflow: hidden;
+  gap: 1px;
+  /* position: relative; */
+}
+
+.flex-container:hover {
+  gap: 0px;
+  /* position: relative; */
+}
+
+.bg-image:nth-child(1) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%),
+    url(../images/citizen-uses-mockup-tablet-city_482257-75876.jpg);
+  opacity: 0;
+  transition: all ease 0.5s;
+}
+.bg-image:nth-child(2) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%),
+    url(../images/closeup-with-laptop-sticky-notes_23-2148205691.jpg);
+  opacity: 0;
+  transition: all ease 0.5s;
+}
+.bg-image:nth-child(3) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%),
+    url(../images/medium-shot-woman-with-laptop_23-2148883486.jpg);
+  opacity: 0;
+  transition: all ease 0.5s;
+}
+.bg-image:nth-child(4) {
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%),
+    url(../images/medium-shot-woman-with-laptop_23-2148883486.jpg);
+  opacity: 0;
+  transition: all ease 0.5s;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* z-index: 2; */
+  background-size: cover;
+  transform: scale(1);
+}
+
+/* .flex-container:hover .flex-item {
+  display: none;
+}
+.flex-container:hover .flex-item:hover {
+  display: block;
+} */
+
+.flex-item {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  transition: all ease-in-out 0.5s;
+}
+
+.flex-item:hover {
+  flex-basis: 10%;
+  background-color: rgba(0, 0, 255, 0.3); /* Blue overlay */
+}
+
+.flex-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity ease-in-out 0.5s;
+}
+.flex-container:hover img {
+  opacity: 0;
+}
+
+.flex-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.flex-item:hover::before {
+  opacity: 1; /* Overlay remains visible */
+}
+
+.flex-item h3,
+.flex-item p {
+  position: absolute;
+  z-index: 2;
+  left: 20px; /* Position from left */
+  bottom: 60px; /* Position from bottom */
+  margin: 0;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add some text shadow for readability */
+}
+
+.flex-item p {
+  bottom: 20px; /* Adjust for paragraph below the heading */
+  font-size: 14px; /* Adjust text size for better readability */
+}
