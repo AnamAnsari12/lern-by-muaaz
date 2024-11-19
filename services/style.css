@@ -78,37 +78,63 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.flex-item h3,
+.card-text-content {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.card-text-content-link {
+  color: black;
+  text-decoration: none;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  display: none;
+}
+
+.flex-item:hover .card-text-content-link {
+  display: inline;
+}
+
+/* .flex-item h3,
 .flex-item p {
   position: absolute;
   z-index: 2;
-  left: 20px; /* Position from left */
-  bottom: 60px; /* Position from bottom */
+  left: 20px; 
+  bottom: 60px; 
   margin: 0;
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add some text shadow for readability */
-}
+} */
 
 .flex-item p {
   bottom: 20px; /* Adjust for paragraph below the heading */
   font-size: 14px; /* Adjust text size for better readability */
 }
 .flex-item .img-view {
-  position: absolute;
-  bottom: -3%;
+  /* position: absolute; */
+  /* bottom: -3%; */
   /* padding-bottom: 2px; */
-  left: 10px; /* Adjust position as needed */
-  transform: translateY(-50%);
-  opacity: 0;
-  width: 24px; /* Adjust size as needed */
-  height: 24px; /* Adjust size as needed */
+  /* left: 10px;  */
+  /* transform: translateY(-50%); */
+  opacity: 1;
+  z-index: 99;
+  width: 24px;
+  height: 24px;
   transition: opacity 0.3s ease-in-out;
-  pointer-events: none; /* Prevent interaction with the chevron image */
+  pointer-events: none;
 }
 
 .flex-item:hover .img-view {
   opacity: 1;
 }
+
+.img-view {
+  margin: 1rem;
+}
+
 @media (min-width: 768px) {
   .flex-item:hover {
     flex-basis: 10%;
