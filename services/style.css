@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .wrapper {
   position: relative;
 }
@@ -171,9 +175,12 @@
   .flex-container {
     display: flex;
     flex-direction: row; /* Horizontal scrolling layout */
-    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow: visible !important; /* Enable horizontal scrolling */
     scroll-snap-type: x mandatory; /* Smooth scrolling */
     height: auto; /* Adjust height as needed */
+    gap: 0px;
+    transform: translateX(0px);
+    transition: transform ease-in-out 0.7s;
   }
 
   .flex-item {
