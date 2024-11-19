@@ -2,19 +2,6 @@
   position: relative;
 }
 
-.wrapper:has(.flex-item:nth-child(1):hover) .bg-image:nth-child(1) {
-  opacity: 1;
-}
-.wrapper:has(.flex-item:nth-child(2):hover) .bg-image:nth-child(2) {
-  opacity: 1;
-}
-.wrapper:has(.flex-item:nth-child(3):hover) .bg-image:nth-child(3) {
-  opacity: 1;
-}
-.wrapper:has(.flex-item:nth-child(4):hover) .bg-image:nth-child(4) {
-  opacity: 1;
-}
-
 .flex-container {
   display: flex;
   height: 400px;
@@ -23,26 +10,23 @@
   /* position: relative; */
 }
 
-.flex-container:hover {
-  gap: 0px;
-  /* position: relative; */
-}
-
 .bg-image:nth-child(1) {
   background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%),
-    url(../images/citizen-uses-mockup-tablet-city_482257-75876.jpg);
+    url(../images/a1.jpg);
   opacity: 0;
   transition: all ease 0.5s;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .bg-image:nth-child(2) {
   background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%),
-    url(../images/closeup-with-laptop-sticky-notes_23-2148205691.jpg);
+    url(../images/a2.jpg);
   opacity: 0;
   transition: all ease 0.5s;
 }
 .bg-image:nth-child(3) {
   background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%),
-    url(../images/medium-shot-woman-with-laptop_23-2148883486.jpg);
+    url(../images/a3.png);
   opacity: 0;
   transition: all ease 0.5s;
 }
@@ -76,19 +60,11 @@
   transition: all ease-in-out 0.5s;
 }
 
-.flex-item:hover {
-  flex-basis: 10%;
-  background-color: rgba(0, 0, 255, 0.3); /* Blue overlay */
-}
-
 .flex-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: opacity ease-in-out 0.5s;
-}
-.flex-container:hover img {
-  opacity: 0;
 }
 
 .flex-item::before {
@@ -100,10 +76,6 @@
   height: 100%;
   z-index: 1;
   transition: opacity 0.5s ease-in-out;
-}
-
-.flex-item:hover::before {
-  opacity: 1; /* Overlay remains visible */
 }
 
 .flex-item h3,
@@ -120,4 +92,78 @@
 .flex-item p {
   bottom: 20px; /* Adjust for paragraph below the heading */
   font-size: 14px; /* Adjust text size for better readability */
+}
+.flex-item .img-view {
+  position: absolute;
+  bottom: -3%;
+  /* padding-bottom: 2px; */
+  left: 10px; /* Adjust position as needed */
+  transform: translateY(-50%);
+  opacity: 0;
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none; /* Prevent interaction with the chevron image */
+}
+
+.flex-item:hover .img-view {
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .flex-item:hover {
+    flex-basis: 10%;
+    background-color: rgba(0, 0, 255, 0.3); /* Blue overlay */
+  }
+
+  .flex-container:hover {
+    gap: 0px;
+    /* position: relative; */
+  }
+
+  .wrapper:has(.flex-item:nth-child(1):hover) .bg-image:nth-child(1) {
+    opacity: 1;
+  }
+  .wrapper:has(.flex-item:nth-child(2):hover) .bg-image:nth-child(2) {
+    opacity: 1;
+  }
+  .wrapper:has(.flex-item:nth-child(3):hover) .bg-image:nth-child(3) {
+    opacity: 1;
+  }
+  .wrapper:has(.flex-item:nth-child(4):hover) .bg-image:nth-child(4) {
+    opacity: 1;
+  }
+  .flex-item:hover::before {
+    opacity: 1; /* Overlay remains visible */
+  }
+  .flex-container:hover img {
+    opacity: 0;
+  }
+}
+
+/* Mobile and Tablet Specific Styles */
+@media (max-width: 767px) {
+  .flex-container {
+    display: flex;
+    flex-direction: row; /* Horizontal scrolling layout */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Smooth scrolling */
+    height: auto; /* Adjust height as needed */
+  }
+
+  .flex-item {
+    flex: 0 0 100%; /* Each item takes 100% width of the screen */
+    scroll-snap-align: center; /* Snap items to the center when scrolling */
+    height: auto; /* Adjust height for content */
+    position: relative;
+  }
+
+  .flex-item img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+  }
+
+  .bg-image {
+    display: none; /* Hide background images for simplicity on mobile */
+  }
 }
