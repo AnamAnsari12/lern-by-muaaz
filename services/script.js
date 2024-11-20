@@ -14,4 +14,4 @@ function slide() {
   console.log("SLIDe");
 }
 
-setInterval(slide, 5000); // Slide every 2 seconds
+setInterval(slide, 1000); // Slide every 2 seconds

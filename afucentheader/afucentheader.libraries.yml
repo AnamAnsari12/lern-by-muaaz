@@ -1,0 +1,4 @@
+marquee_styles:
+  css:
+    component:
+      css/marquee.css: {}
