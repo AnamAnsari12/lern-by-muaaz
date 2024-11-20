@@ -28,21 +28,27 @@ class Afucentheader extends BlockBase
   {
     $config = $this->getConfiguration();
 
-    $image_urls = [];
-   
-    $ids = explode(",", $config['afucentheader_images']);
-    if (!empty($config['afucentheader_images'])) {
-      foreach ($ids as $media_id) {
-        $image_urls[] = Media::load($media_id);
-      }
-    }
-    
 
+    $id = $config['header_logo'];
+    $image_url = Media::load($id);
+
+    $menu_name = $config['header_menu'] ?? '';
+    $menu_items = [];
+    if (!empty($menu_name)) {
+      $menu_tree = \Drupal::menuTree();
+      $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
+      $tree = $menu_tree->load($menu_name, $parameters);
+      $manipulators = [
+        ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+        ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+      ];
+      $menu_items = $menu_tree->transform($tree, $manipulators);
+    }
 
     return [
       '#theme' => 'afucentheader',
-      '#title' => $config['afucentheader_title'],
-      '#images' => $image_urls ?? "FAILED",
+      '#menu_items' => $menu_items,
+      '#logo' => $image_url ?? "FAILED",
       '#attached' => [
         'library' => [
           'afucentheader/afucentheader_styles',
@@ -57,7 +63,8 @@ class Afucentheader extends BlockBase
   public function defaultConfiguration()
   {
     return [
-      'afucentheader_title' => $this->t(''),
+      'header_menu' => $this->t(''),
+      'header_logo' => $this->t('')
     ];
   }
 
@@ -68,22 +75,24 @@ class Afucentheader extends BlockBase
   {
     $config = $this->getConfiguration();
 
-    $form['afucentheader_title'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Block Title'),
-      '#default_value' => $this->configuration['afucentheader_title'] ?? '',
+    $form['header_menu'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Select Menu'),
+      '#default_value' => $config['header_menu'],
+      '#options' => $this->getMenuOptions(),
+      '#required' => TRUE,
     ];
 
-   
 
-    $form['marquee_images'] = [
+
+    $form['header_logo'] = [
       '#type' => 'media_library',
       '#title' => $this->t('Select Image'),
-      '#default_value' => $config['afucentheader_images'],
+      '#default_value' => $config['header_logo'],
       '#allowed_bundles' => ['image'], // Ensure this matches your media bundle
-      '#required' => TRUE,
-      '#cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED,
-    
+      '#required' => FALSE,
+      '#cardinality' => 1,
+
     ];
 
     return $form;
@@ -95,8 +104,23 @@ class Afucentheader extends BlockBase
   public function blockSubmit($form, FormStateInterface $form_state)
   {
     $values = $form_state->getValues();
-    $this->configuration['afucentheader_title'] = $values['marquee_title'];
-    $this->configuration['afucentheader_images'] = $values['marquee_images'];
+    $this->configuration['header_menu'] = $values['header_menu'];
+    $this->configuration['header_logo'] = $values['header_logo'];
+  }
 
+  /**
+   * Get available menus.
+   *
+   * @return array
+   *   Array of menu options.
+   */
+  private function getMenuOptions()
+  {
+    $menu_options = [];
+    $menus = \Drupal::entityTypeManager()->getStorage('menu')->loadMultiple();
+    foreach ($menus as $menu) {
+      $menu_options[$menu->id()] = $menu->label();
     }
+    return $menu_options;
+  }
 }

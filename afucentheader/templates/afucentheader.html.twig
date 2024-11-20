@@ -1,15 +1,17 @@
 
     <header class="header">
       <div class="logo">
-        <a href="#"><img src="logo.png" alt="Logo" /></a>
+      {% set url = logo.field_media_image.entity.fileuri|image_style('large') %}
+        <a href="#"><img src="{{url}}" alt="Logo" /></a>
       </div>
       <nav class="navbar">
-        <ul class="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+        <ul>
+      {% for item in menu_items %}
+        <li>
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
       </nav>
     </header>
  

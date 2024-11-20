@@ -1,4 +1,4 @@
-marquee_styles:
+afucentheader_styles:
   css:
     component:
-      css/marquee.css: {}
+      css/afucentheader.css: {}
