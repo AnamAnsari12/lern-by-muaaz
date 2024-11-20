@@ -3,12 +3,12 @@
 /**
  * Implements hook_theme().
  */
-function marquee_theme($existing, $type, $theme, $path) {
+function afucentheader_theme($existing, $type, $theme, $path) {
   return [
-    'marquee' => [
+    'afucentheader' => [
       'variables' => [
-        'title' => NULL,
-        'images' => NULL,
+        'menu_items' => NULL,
+        'logo' => NULL,
       ],
     ],
   ];
