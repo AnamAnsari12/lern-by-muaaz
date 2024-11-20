@@ -1,14 +1,17 @@
 
     <header class="header">
+      {# {{dump(menu_items["49951 Services menu_link_content:4819e9bf-1532-4763-859c-e328fcfb5936"])}} #}
+       {{ attach_library('afucentheader/afucentheader_script') }}
       <div class="logo">
       {% set url = logo.field_media_image.entity.fileuri|image_style('large') %}
         <a href="#"><img src="{{url}}" alt="Logo" /></a>
       </div>
-      <nav class="navbar">
-        <ul>
-      {% for item in menu_items %}
+      <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+      <nav class="custom-navbar">
+        <ul class="menu">
+      {% for title, src in menu_items %}
         <li>
-          <a href="{{ item.url }}">{{ item.title }}</a>
+          <a href="{{ src }}">{{ title }}</a>
         </li>
       {% endfor %}
     </ul>

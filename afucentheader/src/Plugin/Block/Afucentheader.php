@@ -44,14 +44,26 @@ class Afucentheader extends BlockBase
       ];
       $menu_items = $menu_tree->transform($tree, $manipulators);
     }
+    $urls = [];
+
+    foreach ($menu_items as $element) {
+      $link = $element->link;
+      $title = $link->getTitle();
+      $url = $link->getUrlObject();
+      $url_string = $url->toString();
+      if($link->isEnabled()){
+        $urls[$title] = $url_string;
+      }
+    }
 
     return [
       '#theme' => 'afucentheader',
-      '#menu_items' => $menu_items,
+      '#menu_items' => $urls,
       '#logo' => $image_url ?? "FAILED",
       '#attached' => [
         'library' => [
           'afucentheader/afucentheader_styles',
+           'afucentheader/afucentheader_script',
         ],
       ],
     ];
@@ -64,7 +76,7 @@ class Afucentheader extends BlockBase
   {
     return [
       'header_menu' => $this->t(''),
-      'header_logo' => $this->t('')
+      // 'header_logo' => $this->t('')
     ];
   }
 

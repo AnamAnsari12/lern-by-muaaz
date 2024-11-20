@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text and Image Section with Toggle</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <section class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-md-12 text-center">
+          <button id="toggleButton" class="btn btn-primary">
+            Toggle Columns
+          </button>
+        </div>
+        <div class="row align-items-center">
+          <div id="textColumn" class="col-md-6">
+            <h2>About Us</h2>
+            <p>Helping organizations enhance their digital experience.</p>
+            <p>
+              In the digital arena, we strive to comprehend the challenges and
+              obstacles faced by organizations.
+            </p>
+            <p>
+              By understanding their unique needs and requirements, we offer
+              multiple solutions that align with their budget and future
+              objectives.
+            </p>
+            <p>
+              Our focus lies in enhancing user experiences at every interaction
+              point, leveraging cutting-edge technologies to deliver a seamless
+              and exceptional journey.
+            </p>
+          </div>
+          <div id="imageColumn" class="col-md-6">
+            <img
+              src="../images/learning-science_1098-19573.jpg"
+              class="img-fluid"
+              alt="Your Image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const toggleButton = document.getElementById("toggleButton");
+      const textColumn = document.getElementById("textColumn");
+      const imageColumn = document.getElementById("imageColumn");
+
+      toggleButton.addEventListener("click", () => {
+        // Toggle the order of the columns
+        textColumn.classList.toggle("order-md-last");
+        imageColumn.classList.toggle("order-md-first");
+      });
+    </script>
+  </body>
+</html>

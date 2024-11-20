@@ -2,3 +2,7 @@ afucentheader_styles:
   css:
     component:
       css/afucentheader.css: {}
+    
+ js:
+    js/afucentheader.js: {}
+    
