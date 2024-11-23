@@ -9,8 +9,10 @@ function switchContent(e) {
   children.forEach((element) => {
     element.classList.add("hide-jobcard");
     element.classList.remove("active-jobcard");
+    element.classList.remove("d-block");
   });
 
   content.classList.toggle("hide-jobcard");
+  content.classList.add("d-block");
   content.classList.add("active-jobcard");
 }

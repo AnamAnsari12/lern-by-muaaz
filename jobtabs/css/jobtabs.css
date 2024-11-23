@@ -34,3 +34,21 @@
   padding: 20px;
   border-radius: 5px;
 }
+
+.hide-jobcard {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.active-jobcard {
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform ease-in 0.5s;
+}
+
+#swapdata {
+  position: relative;
+}
+#swapdata > div {
+  position: absolute;
+  top: 0;
+}
