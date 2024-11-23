@@ -1,0 +1,7 @@
+name: "jobs Tabs"
+description: "Provides a layout to show blocks as a tabs set"
+package: Custom
+type: module
+core_version_requirement: ^8 || ^9 || ^10 || ^11
+dependencies:
+  - drupal:layout_discovery

@@ -1,0 +1,36 @@
+.main-wrapper {
+  background-color: blue;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.main-wrapper h1 {
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.jobcontentheading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.jobcontentheading h2 {
+  margin: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.jobcontentheading h2:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.swapdata {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 5px;
+}

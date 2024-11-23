@@ -1,0 +1,80 @@
+{%
+  set classes = [
+    'layout',
+    'layout--tabs',
+  ]
+%}
+{% if content %}
+{% set region = 'jobtabs' %}
+{% set blocks = content[region]|sortbyweight %}
+  <div{{ attributes.addClass(classes) }}>
+    <div {{ region_attributes.tabs.addClass('layout__region', 'layout__region--tabs', 'tabs-region') }}>
+{# Our custom structure breaks layout builder, so omit #}
+{% if not content["#in_preview"] %}
+{{ attach_library('jobtabs/jobtabs') }}
+    <section>
+      <div class="main-wrapper">
+      
+
+       <div> <h1>Explore Opportunities</h1></div>
+
+       
+
+        <div class="jobcontentheading">
+         
+           <div class="jobsfirsttabs">
+         <h2 onclick="switchContent()">
+            Interns
+          </h2>
+          <p onclick="switchContent()">python</p></div>
+      <div class="jobssecondtabs">
+      <h2 onclick="switchContent()">
+          Professionals
+          </h2>
+          <p  onclick="switchContent()">Technical Project Manager (Software Development)</p>
+      </div>
+        </div>
+
+        <div class="swapdata" id="swapdata">
+         <div id="jobs1"> Technical Project Manager (Software Development) Responsibilities: ●
+          Technical Project Management: - Assist in project planning, execution,
+          and monitoring, ensuring projects are delivered on time, within scope,
+          and within budget. - Support CMS & Web Application project teams in
+          defining project objectives, deliverables, and success criteria. -
+          Coordinate cross-functional teams, including designers, developers,
+          and content creators, to ensure alignment and collaboration. - Monitor</div>
+           <div id="jobs2"> Technical Project Manager (Software Development) Responsibilities: ●
+          Technical Project Management: - Assist in project planning, execution,
+          and monitoring, ensuring projects are delivered on time, within scope,
+          and within budget. - Support CMS & Web Application project teams in
+         </div>
+        </div>
+      </div>
+    </section>
+{% else %}
+{# Markup for layout builder #}
+
+<!-- Tab panes -->
+{% for block_id, block_data in blocks %}
+  {% if block_id starts with '#' %}
+    {# Don't try to output attributes #}
+  {% else %}
+    {% set block_label = content[region][block_id]['content']['#title']['#markup'] %}
+    {% if block_label is empty %}
+      {% set block_label = content[region][block_id]['#configuration']['label'] %}
+    {% endif %}
+    {% if block_label is not empty %}
+      {# Simulate tab labels above each block in Layout Builder #}
+      <ul class="tabs"><li>
+      <h3 class="tabs__tab"><a class="is-active">{{ block_label }}</a></h3>
+      </li></ul>
+    {% endif %}
+    {{ content[region][block_id] }}
+  {% endif %}
+{% endfor %}
+{% endif %}
+{# Output anything remaining #}
+{{ content|without(region) }}
+</div>
+</div>
+{% endif %}

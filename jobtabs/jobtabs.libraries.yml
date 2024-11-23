@@ -1,0 +1,8 @@
+jobtabs:
+  css:
+    component:
+      css/jobtabs.css: {}
+  js:
+    js/jobtabs.js: {}
+  dependencies:
+    - core/jquery

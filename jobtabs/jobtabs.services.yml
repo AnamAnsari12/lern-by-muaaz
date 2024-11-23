@@ -1,0 +1,5 @@
+services:
+  jobtabs.customTwigExtension:
+    class: Drupal\jobtabs\TwigExtension\SortByWeight
+    tags:
+      - { name: twig.extension }

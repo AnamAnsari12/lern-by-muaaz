@@ -1,0 +1,17 @@
+jobtabs:
+  label: jobtabs
+  category: "Extra Layouts"
+  template: templates/jobtabs
+  class: '\Drupal\jobtabs\Plugin\Layout\Jobtabs'
+  icon_map:
+    - [first, second, third]
+    - [all]
+    - [all]
+    - [all]
+    - [all]
+  regions:
+    jobtabs:
+      label: job Tab Set
+    # ideally this would be configurable so there could be a number of rows,
+    # each one of which is a tab, that can contain multiple blocks, but this
+    # would also require adding a label to each tab though configuration.
