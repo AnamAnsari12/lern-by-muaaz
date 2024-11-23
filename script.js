@@ -7,10 +7,10 @@ function switchContent(e) {
 
   children = Array.from(swapdataField.children);
   children.forEach((element) => {
-    element.classList.add("hide-jobcard");
-    element.classList.remove("active-jobcard");
+    element.classList.add("hide");
+    element.classList.remove("active");
   });
 
-  content.classList.toggle("hide-jobcard");
-  content.classList.add("active-jobcard");
+  content.classList.toggle("hide");
+  content.classList.add("active");
 }

@@ -1,160 +1,67 @@
-<header
-  class="navbar navbar dxpr-theme-header clearfix dxpr-theme-header--overlay dxpr-theme-header--hover-text dxpr-theme-header--fixed dxpr-theme-header--top"
-  id="navbar"
-  role="banner"
->
-  <div class="container navbar-container">
-    <div class="row container-row">
-      <div class="col-sm-12 container-col">
-        <div class="navbar-header">
-          <div class="region region-navigation">
-            <div class="wrap-branding">
-              <a
-                class="logo navbar-btn"
-                href="/Afucentdrupal/"
-                title="Home"
-                rel="home"
-              >
-                <img
-                  id="logo"
-                  src="/Afucentdrupal/sites/default/files/output-onlinepngtools.png"
-                  alt="Home"
-                />
-              </a>
-            </div>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <style>
+      .hide {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+      .active {
+        transform: scaleY(1);
+        transform-origin: top;
+        transition: transform ease-in 0.5s;
+      }
 
-          <a
-            id="dxpr-theme-menu-toggle"
-            href="#"
-            class="three-dash"
-            data-once="dxpr_themeMenuToggle"
-            ><span></span>
-            <div class="screenreader-text visually-hidden">Toggle menu</div></a
-          >
+      #swapdata {
+        position: relative;
+      }
+      #swapdata > div {
+        position: absolute;
+        top: 0;
+      }
+    </style>
+    <section>
+      <div class="main-wrapper">
+        <div><h1>Explore Opportunities</h1></div>
+
+        <div class="jobcontentheading">
+          <div class="jobsfirsttabs">
+            <h2>Interns</h2>
+            <p onclick="switchContent(event)" data-jobid="1">python</p>
+          </div>
+          <div class="jobssecondtabs">
+            <h2>Professionals</h2>
+            <p onclick="switchContent(event)" data-jobid="2">
+              Technical Project Manager (Software Development)
+            </p>
+          </div>
         </div>
 
-        <nav
-          role="navigation"
-          id="dxpr-theme-main-menu"
-          class="dxpr-theme-main-menu"
-          style="position: relative"
-        >
-          <div class="region region-navigation-collapsible">
-            <section
-              id="block-dxpr-theme-main-menu"
-              class="contextual-region block block-system block-system-menu-blockmain clearfix"
-            >
-              <div
-                data-contextual-id="block:block=dxpr_theme_main_menu:langcode=en|menu:menu=main:langcode=en"
-                data-contextual-token="swbDlbVaioKBRGoO6X2rUHe23U5GNHmoXoPe5W2tjII"
-                data-drupal-ajax-container=""
-                data-once="contextual-render"
-                class="contextual"
-              >
-                <button
-                  class="trigger visually-hidden focusable"
-                  type="button"
-                  aria-pressed="false"
-                >
-                  Open configuration options
-                </button>
-                <ul class="contextual-links" hidden="">
-                  <li>
-                    <a
-                      href="/Afucentdrupal/admin/structure/block/manage/dxpr_theme_main_menu?destination=/Afucentdrupal/node/2"
-                      >Configure block</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/Afucentdrupal/admin/structure/block/manage/dxpr_theme_main_menu/delete?destination=/Afucentdrupal/node/2"
-                      >Remove block</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/Afucentdrupal/admin/structure/menu/manage/main?destination=/Afucentdrupal/node/2"
-                      >Edit menu</a
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <ul
-                data-block="navigation_collapsible"
-                class="menu nav navbar-nav menu__level--current"
-                style="top: 100%; height: auto; margin-top: 0px"
-              >
-                <li class="expanded dropdown">
-                  <a
-                    href="/Afucentdrupal/"
-                    class="parent_link is-active menu__link"
-                    data-drupal-link-system-path="<front>"
-                    >Home</a
-                  >
-                </li>
-                <li class="expanded dropdown">
-                  <a
-                    href="/Afucentdrupal/service"
-                    class="parent_link menu__link"
-                    data-drupal-link-system-path="node/5"
-                    >Services</a
-                  >
-                </li>
-                <li class="expanded dropdown">
-                  <a
-                    href="/Afucentdrupal/expertise"
-                    class="parent_link menu__link"
-                    data-drupal-link-system-path="node/6"
-                    >Expertise</a
-                  >
-                </li>
-                <li class="expanded dropdown">
-                  <a
-                    href="/Afucentdrupal/industries"
-                    class="parent_link menu__link"
-                    data-drupal-link-system-path="node/15"
-                    >Industries</a
-                  >
-                </li>
-                <li class="expanded dropdown">
-                  <a
-                    href="/Afucentdrupal/about"
-                    class="parent_link menu__link"
-                    data-drupal-link-system-path="node/3"
-                    >About Us</a
-                  >
-                </li>
-                <li class="expanded dropdown">
-                  <a
-                    href="/Afucentdrupal/careers"
-                    class="parent_link menu__link"
-                    data-drupal-link-system-path="node/7"
-                    >Careers</a
-                  >
-                </li>
-                <li class="expanded dropdown">
-                  <a
-                    href="/Afucentdrupal/contact"
-                    class="parent_link menu__link"
-                    data-drupal-link-system-path="node/4"
-                    >Contact Us</a
-                  >
-                </li>
-                <li class="expanded dropdown">
-                  <a
-                    href="/Afucentdrupal/test"
-                    class="parent_link menu__link"
-                    data-drupal-link-system-path="node/16"
-                    >test page</a
-                  >
-                </li>
-              </ul>
-            </section>
+        <div class="swapdata" id="swapdata">
+          <div id="jobs1" class="hide">
+            Technical Project Manager (Software Development) Responsibilities: ●
+            Technical Project Management: - Assist in project planning,
+            execution, and monitoring, ensuring projects are delivered on time,
+            within scope, and within budget. - Support CMS & Web Application
+            project teams in defining project objectives, deliverables, and
+            success criteria. - Coordinate cross-functional teams, including
+            designers, developers, and content creators, to ensure alignment and
+            collaboration. - Monitor
           </div>
-        </nav>
+          <div id="jobs2" class="hide">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+            architecto odio suscipit veritatis ea voluptatibus reprehenderit
+            atque beatae porro ex. Voluptatibus iure pariatur ut sint optio
+            voluptate laudantium iusto placeat!
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</header>
+    </section>
+  </body>
+</html>

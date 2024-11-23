@@ -12,45 +12,42 @@
 {# Our custom structure breaks layout builder, so omit #}
 {% if not content["#in_preview"] %}
 {{ attach_library('jobtabs/jobtabs') }}
-    <section>
-      <div class="main-wrapper">
-      
-
-       <div> <h1>Explore Opportunities</h1></div>
-
-       
-
-        <div class="jobcontentheading">
-         
-           <div class="jobsfirsttabs">
-         <h2 onclick="switchContent()">
-            Interns
-          </h2>
-          <p onclick="switchContent()">python</p></div>
-      <div class="jobssecondtabs">
-      <h2 onclick="switchContent()">
-          Professionals
-          </h2>
-          <p  onclick="switchContent()">Technical Project Manager (Software Development)</p>
-      </div>
+  <section>
+    <div class="main-wrapper">
+      <div><h1>Explore Opportunities</h1></div>
+      <div class="jobcontentheading">
+        <div class="jobsfirsttabs">
+          <h2>Interns</h2>
+          <p onclick="switchContent(event)" data-jobid="1">python</p>
         </div>
-
-        <div class="swapdata" id="swapdata">
-         <div id="jobs1"> Technical Project Manager (Software Development) Responsibilities: ●
-          Technical Project Management: - Assist in project planning, execution,
-          and monitoring, ensuring projects are delivered on time, within scope,
-          and within budget. - Support CMS & Web Application project teams in
-          defining project objectives, deliverables, and success criteria. -
-          Coordinate cross-functional teams, including designers, developers,
-          and content creators, to ensure alignment and collaboration. - Monitor</div>
-           <div id="jobs2"> Technical Project Manager (Software Development) Responsibilities: ●
-          Technical Project Management: - Assist in project planning, execution,
-          and monitoring, ensuring projects are delivered on time, within scope,
-          and within budget. - Support CMS & Web Application project teams in
-         </div>
+        <div class="jobssecondtabs">
+          <h2>Professionals</h2>
+          <p onclick="switchContent(event)" data-jobid="2">
+            Technical Project Manager (Software Development)
+          </p>
         </div>
       </div>
-    </section>
+      <div class="swapdata" id="swapdata">
+        <div id="jobs1" class="hide">
+          Technical Project Manager (Software Development) Responsibilities: ●
+          Technical Project Management: - Assist in project planning,
+          execution, and monitoring, ensuring projects are delivered on time,
+          within scope, and within budget. - Support CMS & Web Application
+          project teams in defining project objectives, deliverables, and
+          success criteria. - Coordinate cross-functional teams, including
+          designers, developers, and content creators, to ensure alignment and
+          collaboration. - Monitor
+        </div>
+        <div id="jobs2" class="hide">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+          architecto odio suscipit veritatis ea voluptatibus reprehenderit
+          atque beatae porro ex. Voluptatibus iure pariatur ut sint optio
+          voluptate laudantium iusto placeat!
+        </div>
+      </div>
+    </div>
+  </section>
+
 {% else %}
 {# Markup for layout builder #}
 
