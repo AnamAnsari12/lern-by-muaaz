@@ -8,49 +8,11 @@
   </head>
   <body>
     <style>
-      .main-wrapper {
-        background-color: blue;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        transition: all ease-in 0.5s;
-      }
-
-      .main-wrapper h1 {
-        margin: 0;
-        padding-bottom: 20px;
-      }
-
-      .jobcontentheading {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 20px 0;
-      }
-
-      .jobcontentheading h2 {
-        margin: 0;
-        padding: 10px 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      .jobcontentheading h2:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-
-      .swapdata > div {
-        background-color: white;
-        color: black;
-        padding: 20px;
-        border-radius: 5px;
-      }
-
-      .hide-jobcard {
+      .hide {
         transform: scaleY(0);
         transform-origin: top;
       }
-      .active-jobcard {
+      .active {
         transform: scaleY(1);
         transform-origin: top;
         transition: transform ease-in 0.5s;
@@ -59,12 +21,9 @@
       #swapdata {
         position: relative;
       }
-      .swapdata > div {
+      #swapdata > div {
         position: absolute;
         top: 0;
-      }
-      .d-block {
-        position: initial !important;
       }
     </style>
     <section>
@@ -85,7 +44,7 @@
         </div>
 
         <div class="swapdata" id="swapdata">
-          <div id="jobs1" class="hide-jobcard">
+          <div id="jobs1" class="hide">
             Technical Project Manager (Software Development) Responsibilities: ●
             Technical Project Management: - Assist in project planning,
             execution, and monitoring, ensuring projects are delivered on time,
@@ -95,7 +54,7 @@
             designers, developers, and content creators, to ensure alignment and
             collaboration. - Monitor
           </div>
-          <div id="jobs2" class="hide-jobcard">
+          <div id="jobs2" class="hide">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam
             architecto odio suscipit veritatis ea voluptatibus reprehenderit
             atque beatae porro ex. Voluptatibus iure pariatur ut sint optio
