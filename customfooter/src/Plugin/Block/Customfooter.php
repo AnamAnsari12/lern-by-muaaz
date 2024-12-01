@@ -29,7 +29,7 @@ class Customfooter extends BlockBase
     $config = $this->getConfiguration();
 
 
-   
+
 
     $menu_name = $config['customfooter_menu'] ?? '';
     $menu_items = [];
@@ -50,24 +50,34 @@ class Customfooter extends BlockBase
       $title = $link->getTitle();
       $url = $link->getUrlObject();
       $url_string = $url->toString();
-      if($link->isEnabled()){
+      if ($link->isEnabled()) {
         $urls[$title] = $url_string;
       }
     }
 
-    
+
     $id1 = $config['customfooter_icon1'];
-    if($id1){
+    if ($id1) {
       $footericon1 = Media::load($id1);
     }
 
     $id2 = $config['customfooter_icon2'];
-    if($id2){
+    if ($id2) {
       $footericon2 = Media::load($id2);
     }
 
-    
-    
+    $id3 = $config['customfooter_icon3'];
+    if ($id3) {
+      $footericon3 = Media::load($id3);
+    }
+
+    $id4 = $config['customfooter_icon4'];
+    if ($id4) {
+      $footericon4 = Media::load($id4);
+    }
+
+
+
 
     return [
       '#theme' => 'customfooter',
@@ -76,11 +86,15 @@ class Customfooter extends BlockBase
       '#customfooter_link1' => $config['customfooter_iconlink1'],
       '#customfooter_icon2' =>  $footericon2,
       '#customfooter_link2' => $config['customfooter_iconlink2'],
+      '#customfooter_icon3' =>  $footericon3,
+      '#customfooter_link3' => $config['customfooter_iconlink3'],
+      '#customfooter_icon4' =>  $footericon4,
+      '#customfooter_link4' => $config['customfooter_iconlink4'],
       '#content' => $config['customfooter_content'],
       '#attached' => [
         'library' => [
           'customfooter/customfooter_styles',
-           
+
         ],
       ],
     ];
@@ -93,9 +107,11 @@ class Customfooter extends BlockBase
   {
     return [
       'customfooter_menu' => $this->t(''),
-      'customfooter_content' =>$this->t(''),
-      'customfooter_iconlink1' =>$this->t(''),
-      'customfooter_iconlink2' =>$this->t(''),
+      'customfooter_content' => $this->t(''),
+      'customfooter_iconlink1' => $this->t(''),
+      'customfooter_iconlink2' => $this->t(''),
+      'customfooter_iconlink3' => $this->t(''),
+      'customfooter_iconlink4' => $this->t(''),
       // 'customfooter_icon' => $this->t(''),
     ];
   }
@@ -116,14 +132,14 @@ class Customfooter extends BlockBase
       '#required' => TRUE,
     ];
     $form['customfooter_content'] = [
-      
+
       '#type' => 'textarea',
       '#title' => $this->t('content'),
       '#default_value' => $config['customfooter_content'],
       '#required' => TRUE,
     ];
 
-   
+
     $form['customfooter_icon1'] = [
       '#type' => 'media_library',
       '#title' => $this->t('Select Image'),
@@ -143,6 +159,25 @@ class Customfooter extends BlockBase
       '#cardinality' => 1,
 
     ];
+    $form['customfooter_icon3'] = [
+      '#type' => 'media_library',
+      '#title' => $this->t('Select Image'),
+      '#default_value' => $this->configuration['customfooter_icon3'],
+      '#allowed_bundles' => ['image'], // Ensure this matches your media bundle
+      '#required' => FALSE,
+      '#cardinality' => 1,
+
+    ];
+    $form['customfooter_icon4'] = [
+      '#type' => 'media_library',
+      '#title' => $this->t('Select Image'),
+      '#default_value' => $this->configuration['customfooter_icon4'],
+      '#allowed_bundles' => ['image'], // Ensure this matches your media bundle
+      '#required' => FALSE,
+      '#cardinality' => 1,
+
+    ];
+
 
 
     $form['customfooter_iconlink1'] = [
@@ -150,7 +185,7 @@ class Customfooter extends BlockBase
       '#title' => $this->t('inser url'),
       '#default_value' => $config['customfooter_iconlink1'],
       '#required' => FALSE,
-     
+
 
     ];
 
@@ -159,7 +194,23 @@ class Customfooter extends BlockBase
       '#title' => $this->t('inser url'),
       '#default_value' => $config['customfooter_iconlink2'],
       '#required' => FALSE,
-     
+
+
+    ];
+    $form['customfooter_iconlink3'] = [
+      '#type' => 'url',
+      '#title' => $this->t('inser url'),
+      '#default_value' => $config['customfooter_iconlink3'],
+      '#required' => FALSE,
+
+
+    ];
+    $form['customfooter_iconlink4'] = [
+      '#type' => 'url',
+      '#title' => $this->t('inser url'),
+      '#default_value' => $config['customfooter_iconlink4'],
+      '#required' => FALSE,
+
 
     ];
 
@@ -179,8 +230,12 @@ class Customfooter extends BlockBase
     $this->configuration['customfooter_content'] = $values['customfooter_content'];
     $this->configuration['customfooter_icon1'] = $values['customfooter_icon1'];
     $this->configuration['customfooter_icon2'] = $values['customfooter_icon2'];
+    $this->configuration['customfooter_icon3'] = $values['customfooter_icon3'];
+    $this->configuration['customfooter_icon4'] = $values['customfooter_icon4'];
     $this->configuration['customfooter_iconlink1'] = $values['customfooter_iconlink1'];
     $this->configuration['customfooter_iconlink2'] = $values['customfooter_iconlink2'];
+    $this->configuration['customfooter_iconlink3'] = $values['customfooter_iconlink3'];
+    $this->configuration['customfooter_iconlink4'] = $values['customfooter_iconlink4'];
   }
 
   /**
