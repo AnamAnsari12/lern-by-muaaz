@@ -1,0 +1,4 @@
+customfooter_styles:
+  css:
+    component:
+      css/customfooter.css: {}

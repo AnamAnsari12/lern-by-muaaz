@@ -1,0 +1,22 @@
+
+--------------given---------------------
+
+rock pepar sesior  rendom one  output he
+input is nothing
+-----------------------------------------
+
+---------- sub problem--------------------------
+how to random genrate ?
+math.rendom method ka use kar ke rendom number genrate karenge
+
+rendom rock,pepar, sesior kese output ayga ?
+ check karenge set ki hui range se then uske adhar  par out put ayga rendom.
+ -----------------------------------------------------------------------------
+
+ ----------------dudo code -----------------------------------------------------
+
+first - we can create a function function k ander rendom number genrate karenge math.rendom method se and un number ko store krenge rendumnumber variable k ander 
+
+second-
+
+

@@ -1,0 +1,61 @@
+ <footer class="footer">
+      <div class="footer-container">
+        <!-- Company Column -->
+        <div class="footer-column">
+          <h3>Afucent</h3>
+          <div>
+          {{
+         content
+          }}
+          </div>
+        </div>
+
+        <!-- quick links -->
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul >
+      {% for title, src in menu_items %}
+        <li>
+          <a href="{{ src }}">{{ title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+        </div>
+
+      
+
+        
+
+        <!-- Connect with Us Column -->
+        <div class="footer-column connect">
+
+          <h3>Connect with us</h3>
+          <div class="social-icons">
+           {# {{customfooter_icon}}
+           {{dump(customfooter_icon)}} #}
+
+         
+        {% if customfooter_icon1 %}
+          <a href="{{ customfooter_link1 }}">
+            <img src="{{ customfooter_icon1.field_media_image.entity.fileuri|image_style('thumbnail') }}" alt="Custom Footer Icon" class="footer-icon"/>
+          </a>
+        {% endif %}
+        {% if customfooter_icon2 %}
+          <a href="{{ customfooter_link2 }}">
+            <img src="{{ customfooter_icon2.field_media_image.entity.fileuri|image_style('thumbnail') }}" alt="Custom Footer Icon" class="footer-icon"/>
+          </a>
+        {% endif %}
+        {% if customfooter_icon3 %}
+          <a href="{{ customfooter_link3 }}">
+            <img src="{{ customfooter_icon3.field_media_image.entity.fileuri|image_style('thumbnail') }}" alt="Custom Footer Icon" class="footer-icon"/>
+          </a>
+        {% endif %}
+        {% if customfooter_icon4 %}
+          <a href="{{ customfooter_link4 }}">
+            <img src="{{ customfooter_icon4.field_media_image.entity.fileuri|image_style('thumbnail') }}" alt="Custom Footer Icon" class="footer-icon"/>
+          </a>
+        {% endif %}
+          </div>
+        </div>
+      </div>
+    </footer>

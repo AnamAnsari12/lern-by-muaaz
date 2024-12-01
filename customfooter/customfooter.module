@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function customfooter_theme($existing, $type, $theme, $path) {
+  return [
+    'customfooter' => [
+      'variables' => [
+        'menu_items' => NULL,
+       'content' => NULL,
+       'customfooter_link1' => NULL,
+       'customfooter_icon1' => NULL,
+       'customfooter_link2' => NULL,
+       'customfooter_icon2' => NULL,
+       'customfooter_link3' => NULL,
+       'customfooter_icon3' => NULL,
+       'customfooter_link4' => NULL,
+       'customfooter_icon4' => NULL,
+      ],
+    ],
+  ];
+} 
